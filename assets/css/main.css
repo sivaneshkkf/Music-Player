@@ -1,3 +1,70 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active-li{
+    @apply text-white border-b-2 border-yellow-500
+}
+
+
+
+
+/* popular */
+.li-popular{
+    @apply sm:w-32 h-32 min-w-28 rounded-lg justify-center items-center overflow-hidden md:w-40 md:h-40
+}
+
+.img-popular{
+    @apply object-cover w-full h-full
+}
+
+.disc-popular-blur{
+    @apply absolute w-full px-2 py-1 bottom-0 text-xs bg-blend-color-burn text-white flex items-center justify-between backdrop-blur-lg bg-white bg-opacity-10
+}
+
+
+
+/* Top Played */
+.li-topplayed{
+    @apply flex items-center my-2 md:my-0 p-2 gap-3 ring-1 ring-txtcolor rounded-lg backdrop-blur-lg bg-white bg-opacity-5
+}
+
+.li-topplayed-disc{
+  @apply md:w-20 lg:w-32 flex-1
+}
+
+.title-col{
+    @apply text-white font-semibold
+}
+.dic-col{
+    @apply text-xs text-txtcolor
+}
+
+
+
+/* scroll bar */
+@layer utilities {
+    .scrollbar {
+        padding-right: 20px; /* Creates space for scrollbar visually */
+      }
+    .scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+      margin: 20px 0;
+    }
+  
+    .scrollbar::-webkit-scrollbar-track {
+      border-radius: 100vh;
+      background: #4b4b4a00;
+    }
+  
+    .scrollbar::-webkit-scrollbar-thumb {
+      background: #292929;
+      border-radius: 100vh;
+      /* border: 3px solid #070707; */
+    }
+  
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #3a3a3a;
+    }
+  }
