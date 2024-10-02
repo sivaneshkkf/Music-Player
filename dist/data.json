@@ -4,7 +4,7 @@
         "name": "YongBlood",
         "artist": "Sos",
         "album" : "popular",
-        "img" : "public/img/image.png",
+        "img" : "/Music-Player/img/image.png",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -13,7 +13,7 @@
         "name": "Shape of You",
         "artist": "Ed Sheeran",
         "album" : "popular",
-        "img" : "public/img/singer1.jpg",
+        "img" : "/Music-Player/img/singer1.jpg",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -22,7 +22,7 @@
         "name": "Let me Love You",
         "artist": "Dj Snake",
         "album" : "popular",
-        "img" : "public/img/singer2.jpg",
+        "img" : "/Music-Player/img/singer2.jpg",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -31,7 +31,7 @@
         "name": "Despacito",
         "artist": "Luis Fonsi, Daddy Yankee",
         "album" : "popular",
-        "img" : "public/img/singer3.jpg",
+        "img" : "/Music-Player/img/singer3.jpg",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -40,7 +40,7 @@
         "name": "Thinking out Loud",
         "artist": "Ed Sheeran",
         "album" : "popular",
-        "img" : "public/img/singer4.jpg",
+        "img" : "/Music-Player/img/singer4.jpg",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -49,7 +49,7 @@
         "name": "Lose Control",
         "artist": "Teddy Swims",
         "album" : "popular",
-        "img" : "public/img/song1.png",
+        "img" : "/Music-Player/img/song1.png",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -58,7 +58,7 @@
         "name": "Baby",
         "artist": "Justine biper",
         "album" : "topPlayed",
-        "img" : "public/img/singer2.jpg",
+        "img" : "/Music-Player/img/singer2.jpg",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -67,7 +67,7 @@
         "name": "Rap God",
         "artist": "Eminam",
         "album" : "topPlayed",
-        "img" : "public/img/singer3.jpg",
+        "img" : "/Music-Player/img/singer3.jpg",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -76,7 +76,7 @@
         "name": "Paradise",
         "artist": "Coldplay",
         "album" : "topPlayed",
-        "img" : "public/img/singer4.jpg",
+        "img" : "/Music-Player/img/singer4.jpg",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -85,7 +85,7 @@
         "name": "Youngblood",
         "artist": "Sos",
         "album" : "topPlayed",
-        "img" : "public/img/image.png",
+        "img" : "/Music-Player/img/image.png",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -94,7 +94,7 @@
         "name": "YongBlood",
         "artist": "Sos",
         "album" : "topPlayed",
-        "img" : "public/img/song1.png",
+        "img" : "/Music-Player/img/song1.png",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -103,7 +103,7 @@
         "name": "Shape of You",
         "artist": "Ed Sheeran",
         "album" : "topPlayed",
-        "img" : "public/img/song2.png",
+        "img" : "/Music-Player/img/song2.png",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -112,7 +112,7 @@
         "name": "Let me Love You",
         "artist": "Dj Snake",
         "album" : "topPlayed",
-        "img" : "public/img/singer2.jpg",
+        "img" : "/Music-Player/img/singer2.jpg",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -121,7 +121,7 @@
         "name": "Despacito",
         "artist": "Luis Fonsi, Daddy Yankee",
         "album" : "topPlayed",
-        "img" : "public/img/singer3.jpg",
+        "img" : "/Music-Player/img/singer3.jpg",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -130,7 +130,7 @@
         "name": "Thinking out Loud",
         "artist": "Ed Sheeran",
         "album" : "topPlayed",
-        "img" : "public/img/singer4.jpg",
+        "img" : "/Music-Player/img/singer4.jpg",
         "movieName" : "",
         "duration" : "3:30"
     },
@@ -139,7 +139,7 @@
         "name": "Lose Control",
         "artist": "Teddy Swims",
         "album" : "topPlayed",
-        "img" : "public/img/song1.png",
+        "img" : "/Music-Player/img/song1.png",
         "movieName" : "",
         "duration" : "3:30"
     }
