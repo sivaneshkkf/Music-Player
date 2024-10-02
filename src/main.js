@@ -10,33 +10,68 @@ data.forEach(item => {
   album.pushSong(song)
 });
 
+
+
+const popularUl=document.getElementById("pupularUl")
+const topPlayedUl=document.getElementById("topPlayed")
+
 renderSongs()
-
 function renderSongs() {
-  const popularUl=document.getElementById("pupularUl")
-  const topPlayed=document.getElementById("topPlayed")
-
-
   //const popularAlbumData = album.getAlbumSongs("popular")
 
-  getAlbum("popular",popularUl)
-  getAlbum("topPlayed",topPlayed)
+  getAlbum("popular",popularUl,"popular")
+  getAlbum("topPlayed",topPlayedUl,"topPlayed")
 
 }
 
 
 
 
+// catergory click action
+const categoryEl =document.getElementById("categoryEl")
+
+categoryEl.addEventListener("click", (e) => {
+  
+  if(e.target.tagName === "LI"){
+    [...categoryEl.children].forEach(el => {
+    
+      if(el.classList.contains("active-li")){
+        el.classList.remove("active-li")
+      }
+      
+    })
+    e.target.closest("li").classList.add("active-li")
+  }
+ 
+  if(e.target.textContent === "Overview"){
+    getAlbum("popular",popularUl,"popular")
+  }else if(e.target.textContent === "Album"){
+    getAlbum("topPlayed",popularUl,"popular")
+  }else if(e.target.textContent === "Songs"){
+    getAlbum("popular",popularUl,"popular")
+  }else{
+    getAlbum("topPlayed",popularUl,"popular")
+  }
+  
+})
+
 
 // get Albums
-function getAlbum(AlbumName,element){
+function getAlbum(AlbumName,element,ui){
+
   const fragment = document.createDocumentFragment();
+
+  if(element.id === "pupularUl"){
+    popularUl.innerHTML = ""
+  }else if(element.id === "topPlayed"){
+    topPlayedUl.innerHTML =""
+  }
 
   album.getAlbumSongs(AlbumName).forEach((d,index) => {
   
     const liEl = document.createElement("li");
 
-    liEl.innerHTML += UI(AlbumName)
+    liEl.innerHTML += UI(ui)
 
     function UI(uiName){
       if(uiName === "popular"){
@@ -85,8 +120,8 @@ function popularUI(id,img,name,artist){
                 />
                 <div class="disc-popular-blur">
                   <div>
-                    <p>${name}</p>
-                    <p class="text-gray-300">${artist}</p>
+                    <p class="line-clamp-1">${name}</p>
+                    <p class="text-gray-300 line-clamp-1">${artist}</p>
                   </div>
                   <span>
                     <svg
