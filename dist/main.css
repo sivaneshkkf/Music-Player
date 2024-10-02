@@ -11,11 +11,11 @@
 
 /* popular */
 .li-popular{
-    @apply sm:w-32 h-32 min-w-28 rounded-lg justify-center items-center overflow-hidden md:w-40 md:h-40
+    @apply sm:w-32 h-32 min-w-28 rounded-lg justify-center items-center overflow-hidden md:w-40 md:h-40 select-none  cursor-pointer
 }
 
 .img-popular{
-    @apply object-cover w-full h-full
+    @apply object-cover w-full h-full group-hover:scale-125 transform transition-all duration-500
 }
 
 .disc-popular-blur{
@@ -26,7 +26,7 @@
 
 /* Top Played */
 .li-topplayed{
-    @apply flex items-center my-2 md:my-0 p-2 gap-3 ring-1 ring-txtcolor rounded-lg backdrop-blur-lg bg-white bg-opacity-5
+    @apply flex items-center my-2 md:my-0 p-2 gap-3 ring-1 ring-txtcolor rounded-lg select-none backdrop-blur-lg bg-white bg-opacity-5 hover:bg-opacity-10 transform transition-all duration-100  cursor-pointer
 }
 
 .li-topplayed-disc{
