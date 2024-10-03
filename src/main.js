@@ -6,7 +6,7 @@ const album = new Albums();
 //console.log("Imported Data:", data);
 data.forEach(item => {
   //console.log(`Name: ${item.name}, Artist: ${item.artist}`);
-  const song = new Song(item.songId,item.name,item.artist,item.album,item.img,item.movieName,item.duration)
+  const song = new Song(item.songId,item.name,item.artist,item.album,item.img,item.movieName,item.duration,item.song)
   album.pushSong(song)
 });
 
@@ -100,21 +100,23 @@ let playState = false;
 function songPlayonClick(id){
 
   const preSongId= localStorage.getItem("songId")
+
+  const playsongObj = album.getSongByID(id)[0];
   
   if(preSongId != id){
     album.setAllFalse()
     playState = false;
+    loadSong(playsongObj.getSong())
   }
+  
  
   song.onloadedmetadata = function() {
     sliderEl.max = song.duration; // Set max to the audio duration
     sliderEl.value = song.currentTime; // Initialize the slider value
-    console.log(song.duration)
   };
 
   sliderEl.max = song.duration;
   sliderEl.value = song.currentTime;
-  console.log(song.duration, sliderEl.max)
   // Update the slider as the audio plays
   song.ontimeupdate = function() {
     sliderEl.value = song.currentTime;
@@ -128,13 +130,16 @@ function songPlayonClick(id){
     calcValue()
   });
   
+  //loadSong(playsongObj.getSong())
   // Play/Pause functionality
   if (playState) {
     album.pauseSong(id);
     song.pause();
+    console.log(playState)
   } else {
     album.playSong(id);
     song.play();
+    console.log(playState)
   }
   
   footerUI(id, playState);
@@ -157,6 +162,12 @@ sliderEl.addEventListener("input", () => {
   calcValue()
 });
 
+
+function loadSong(src) {
+  song.src = src;
+  song.load(); // Load the new audio source
+  song.play(); // Start playing the song
+}
 
 // time format
 function formatTime(seconds) {
@@ -209,7 +220,8 @@ function footerUI(id,state){
 
 iconWrapper.addEventListener("click", () => {
   const id= localStorage.getItem("songId")
-  songPlayonClick(id)
+
+  songPlayonClick(parseInt(id))
   
 });
 

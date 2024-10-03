@@ -6,7 +6,8 @@
         "album" : "popular",
         "img" : "/Music-Player/img/image.png",
         "movieName" : "",
-        "duration" : "3:15"
+        "duration" : "3:15",
+        "song" : "/Music-Player/songs/song-desp.mp3"
     },
     {
         "songId" : 2,
@@ -15,7 +16,8 @@
         "album" : "popular",
         "img" : "/Music-Player/img/singer1.jpg",
         "movieName" : "",
-        "duration" : "3:20"
+        "duration" : "3:20",
+        "song" : "/Music-Player/songs/song1.mpeg"
     },
     {
         "songId" : 3,
@@ -24,7 +26,8 @@
         "album" : "popular",
         "img" : "/Music-Player/img/singer2.jpg",
         "movieName" : "",
-        "duration" : "3:10"
+        "duration" : "3:10",
+        "song" : "/Music-Player/songs/song2.mpeg"
     },
     {
         "songId" : 4,
@@ -33,7 +36,8 @@
         "album" : "popular",
         "img" : "/Music-Player/img/singer3.jpg",
         "movieName" : "",
-        "duration" : "3:05"
+        "duration" : "3:05",
+        "song" : "/Music-Player/songs/song3.mpeg"
     },
     {
         "songId" : 5,
@@ -42,7 +46,8 @@
         "album" : "popular",
         "img" : "/Music-Player/img/singer4.jpg",
         "movieName" : "",
-        "duration" : "3:40"
+        "duration" : "3:40",
+        "song" : "/Music-Player/songs/song4.mpeg"
     },
     {
         "songId" : 6,
@@ -51,7 +56,8 @@
         "album" : "popular",
         "img" : "/Music-Player/img/song1.PNG",
         "movieName" : "",
-        "duration" : "2:30"
+        "duration" : "2:30",
+        "song" : "/Music-Player/songs/song5.mpeg"
     },
     {
         "songId" : 7,
@@ -60,7 +66,8 @@
         "album" : "topPlayed",
         "img" : "/Music-Player/img/singer2.jpg",
         "movieName" : "",
-        "duration" : "2:20"
+        "duration" : "2:20",
+        "song" : "/Music-Player/songs/song6.mpeg"
     },
     {
         "songId" : 8,
@@ -69,7 +76,8 @@
         "album" : "topPlayed",
         "img" : "/Music-Player/img/singer3.jpg",
         "movieName" : "",
-        "duration" : "2:10"
+        "duration" : "2:10",
+        "song" : "/Music-Player/songs/song7.mpeg"
     },
     {
         "songId" : 9,
@@ -78,7 +86,8 @@
         "album" : "topPlayed",
         "img" : "/Music-Player/img/singer4.jpg",
         "movieName" : "",
-        "duration" : "2:15"
+        "duration" : "2:15",
+        "song" : "/Music-Player/songs/song-desp.mp3"
     },
     {
         "songId" : 10,
@@ -87,7 +96,8 @@
         "album" : "topPlayed",
         "img" : "/Music-Player/img/image.png",
         "movieName" : "",
-        "duration" : "2:45"
+        "duration" : "2:45",
+        "song" : "/Music-Player/songs/song1.mpeg"
     },
     {
         "songId" : 11,
@@ -96,7 +106,8 @@
         "album" : "topPlayed",
         "img" : "/Music-Player/img/song1.PNG",
         "movieName" : "",
-        "duration" : "3:00"
+        "duration" : "3:00",
+        "song" : "/Music-Player/songs/song2.mpeg"
     },
     {
         "songId" : 12,
@@ -105,7 +116,8 @@
         "album" : "topPlayed",
         "img" : "/Music-Player/img/song2.PNG",
         "movieName" : "",
-        "duration" : "2:40"
+        "duration" : "2:40",
+        "song" : "/Music-Player/songs/song3.mpeg"
     },
     {
         "songId" : 13,
@@ -114,7 +126,8 @@
         "album" : "topPlayed",
         "img" : "/Music-Player/img/singer2.jpg",
         "movieName" : "",
-        "duration" : "2:20"
+        "duration" : "2:20",
+        "song" : "/Music-Player/songs/song4.mpeg"
     },
     {
         "songId" : 14,
@@ -123,7 +136,8 @@
         "album" : "topPlayed",
         "img" : "/Music-Player/img/singer3.jpg",
         "movieName" : "",
-        "duration" : "2:00"
+        "duration" : "2:00",
+        "song" : "/Music-Player/songs/song5.mpeg"
     },
     {
         "songId" : 15,
@@ -132,7 +146,8 @@
         "album" : "topPlayed",
         "img" : "/Music-Player/img/singer4.jpg",
         "movieName" : "",
-        "duration" : "3:12"
+        "duration" : "3:12",
+        "song" : "/Music-Player/songs/song6.mpeg"
     },
     {
         "songId" : 16,
@@ -141,7 +156,8 @@
         "album" : "topPlayed",
         "img" : "/Music-Player/img/song1.PNG",
         "movieName" : "",
-        "duration" : "3:18"
+        "duration" : "3:18",
+        "song" : "/Music-Player/songs/song7.mpeg"
     }
  
 ]
