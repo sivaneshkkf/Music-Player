@@ -82,7 +82,7 @@
     },
     {
         "songId" : 10,
-        "name": "Youngblood",
+        "name": "Young blood",
         "artist": "Sos",
         "album" : "topPlayed",
         "img" : "/Music-Player/img/image.png",
@@ -91,7 +91,7 @@
     },
     {
         "songId" : 11,
-        "name": "YongBlood",
+        "name": "Yong Blood",
         "artist": "Sos",
         "album" : "topPlayed",
         "img" : "/Music-Player/img/song1.PNG",

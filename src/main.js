@@ -103,15 +103,39 @@ function songPlayonClick(id){
     playState = false;
   }
  
-  if(playState){
-    album.pauseSong(id)
-  }else{
-    album.playSong(id)
+
+  const sliderEl = document.getElementById("sliderEl");
+  const song = document.getElementById("song");
+  
+  song.onloadedmetadata = function() {
+    // Set the max value of the slider to the duration of the audio
+    sliderEl.max = song.duration;
+    sliderEl.value = song.currentTime;
+  };
+  
+  // Update the slider as the audio plays
+  song.ontimeupdate = function() {
+    sliderEl.value = song.currentTime;
+  };
+  
+  // Optional: Sync audio playback with slider when slider is moved manually
+  sliderEl.addEventListener("input", () => {
+    song.currentTime = sliderEl.value;
+  });
+  
+  // Play/Pause functionality
+  if (playState) {
+    album.pauseSong(id);
+    song.pause();
+  } else {
+    album.playSong(id);
+    song.play();
   }
-
-  footerUI(id,playState)
-
-  playState = !playState
+  
+  footerUI(id, playState);
+  
+  playState = !playState;
+  
 
   renderSongs()
 }
@@ -155,8 +179,24 @@ function footerUI(id,state){
 iconWrapper.addEventListener("click", () => {
   const id= localStorage.getItem("songId")
   songPlayonClick(id)
+  
 });
 
+
+
+
+
+
+// function updateSliderBackground(value) {
+//   const percentage = (value - sliderEl.min) / (sliderEl.max - sliderEl.min) * 100;
+//   sliderEl.style.background = `linear-gradient(to right, #3b82f6 ${percentage}%, #d1d5db ${percentage}%)`;
+// }
+
+// updateSliderBackground(sliderEl.value);
+
+// slider.addEventListener("input", (e) => {
+//   updateSliderBackground(e.target.value);
+// });
 
 
 // create Ui
@@ -218,7 +258,7 @@ function topPlayedUi(id,img,name,artist,duration,play){
                       <p class="text-white text-xs font-semibold line-clamp-1">
                         ${name}
                       </p>
-                      <p class="text-gray-500 text-xs font-medium">
+                      <p class="text-gray-500 text-xs font-medium line-clamp-1">
                         ${artist}
                       </p>
                        
@@ -226,6 +266,7 @@ function topPlayedUi(id,img,name,artist,duration,play){
                    <div class="${lottifile}">
                      <dotlottie-player src="https://lottie.host/31c605e2-16f2-44a6-8f22-b187a85c6197/OQvgg4IPQn.json" background="transparent" speed="1" style="width: 25px; height: 25px;" loop autoplay></dotlottie-player>
                    </div>
+                     <p class="text-xs text-gray-500">${duration}</p>
 
                     <div class="text-gray-500 flex items-center gap-3">
                      

@@ -283,7 +283,7 @@
               <input
                 type="search"
                 placeholder="Search"
-                class="bg-gradient-to-r from-[#212735] to-[#151719] rounded-lg pl-8 pr-4 py-1.5 border-none outline-none focus:ring-1 focus:ring-zinc-800 w-full ring-1 ring-zinc-700 text-white text-sm"
+                class="bg-gradient-to-r from-[#212735] to-[#151719] rounded-lg pl-8 pr-4 py-2 border-none outline-none focus:ring-1 focus:ring-zinc-800 w-full ring-1 ring-zinc-700 text-white text-sm"
               />
             </div>
             <span>
@@ -314,7 +314,7 @@
 
           <div class="pt-3">
             <ul  id="categoryEl"
-              class="flex items-center justify-between sm:justify-center sm:gap-5 sm:mt-10 px-1 text-txtcolor text-sm font-bold"
+              class="flex justify-center gap-5 sm:mt-10 px-1 text-txtcolor text-sm font-bold"
             >
               <li class="active-li">Overview</li>
               <li>Album</li>
@@ -1023,9 +1023,16 @@
                     class="w-full h-full object-cover"
                   />
                 </div>
-                <div class="flex-1 lg:space-y-1">
+                <div class="lg:space-y-1">
                   <p id="psName" class="text-white text-sm font-semibold">Yummy</p>
                   <p id="psArtist" class="text-gray-500 text-xs font-medium">Justin Bieber</p>
+                </div>
+                <!-- audio control -->
+                <div class="flex-1">
+                  <audio controls class="hidden" id="song">
+                    <source src="songs/song-desp.mp3" type="audio/mpeg">
+                  </audio>
+                  <input type="range" value="0" id="sliderEl" class="range-slider w-full">
                 </div>
                 <p id="duration" class="text-xs text-white">3:20</p> 
                 <div
@@ -1047,7 +1054,7 @@
 
                   <div id="iconWrapper" class="cursor-pointer">
                     <!-- Play Icon -->
-                    <span id="footerplayIcon" class="text-white block">
+                    <span id="footerplayIcon" class="text-white hidden">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="32"
@@ -1062,7 +1069,7 @@
                     </span>
                   
                     <!-- Pause Icon -->
-                    <span id="footerpauseIcon" class="text-white hidden">
+                    <span id="footerpauseIcon" class="text-white block">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="32"
