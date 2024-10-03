@@ -91,6 +91,9 @@ function getAlbum(AlbumName,element,ui){
 
 
 
+const sliderEl = document.getElementById("sliderEl");
+const song = document.getElementById("song");
+const durationtxt = document.getElementById("duration")
 
 let playState = false;
 // play funcition
@@ -103,24 +106,26 @@ function songPlayonClick(id){
     playState = false;
   }
  
-
-  const sliderEl = document.getElementById("sliderEl");
-  const song = document.getElementById("song");
-  
   song.onloadedmetadata = function() {
-    // Set the max value of the slider to the duration of the audio
-    sliderEl.max = song.duration;
-    sliderEl.value = song.currentTime;
+    sliderEl.max = song.duration; // Set max to the audio duration
+    sliderEl.value = song.currentTime; // Initialize the slider value
+    console.log(song.duration)
   };
-  
+
+  sliderEl.max = song.duration;
+  sliderEl.value = song.currentTime;
+  console.log(song.duration, sliderEl.max)
   // Update the slider as the audio plays
   song.ontimeupdate = function() {
     sliderEl.value = song.currentTime;
+    calcValue();
+    durationtxt.textContent = formatTime(song.currentTime);
   };
   
   // Optional: Sync audio playback with slider when slider is moved manually
   sliderEl.addEventListener("input", () => {
     song.currentTime = sliderEl.value;
+    calcValue()
   });
   
   // Play/Pause functionality
@@ -139,6 +144,32 @@ function songPlayonClick(id){
 
   renderSongs()
 }
+
+// slider color change
+function calcValue() {
+  let valuePercentage = (sliderEl.value / sliderEl.max) * 100;
+
+  sliderEl.style.background = `-webkit-gradient(linear, left top, right top, color-stop(${valuePercentage}%, #8758ff), color-stop(${valuePercentage}%, #ebe9e7))`;
+  sliderEl.style.background = `linear-gradient(to right, #be123c ${valuePercentage}%, #ebe9e7 ${valuePercentage}%)`;
+}
+
+sliderEl.addEventListener("input", () => {
+  calcValue()
+});
+
+
+// time format
+function formatTime(seconds) {
+  // Calculate minutes
+  const minutes = Math.floor(seconds / 60);
+  
+  // Calculate remaining seconds
+  const remainingSeconds = Math.floor(seconds % 60);
+
+  // Return formatted time with zero-padded seconds
+  return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+
 
 
 // footer play pause
@@ -185,18 +216,6 @@ iconWrapper.addEventListener("click", () => {
 
 
 
-
-
-// function updateSliderBackground(value) {
-//   const percentage = (value - sliderEl.min) / (sliderEl.max - sliderEl.min) * 100;
-//   sliderEl.style.background = `linear-gradient(to right, #3b82f6 ${percentage}%, #d1d5db ${percentage}%)`;
-// }
-
-// updateSliderBackground(sliderEl.value);
-
-// slider.addEventListener("input", (e) => {
-//   updateSliderBackground(e.target.value);
-// });
 
 
 // create Ui
