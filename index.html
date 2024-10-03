@@ -11,6 +11,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
   </head>
   <body class="bg-gradient-to-br from-primary via-middle to-secondary h-screen">
 
@@ -321,7 +323,7 @@
             </ul>
           </div>
         </header>
-
+      
         <!-- section -->
         <section class="mt-4 space-y-2 md:space-y-5">
 
@@ -500,7 +502,6 @@
               <div class="swiper-pagination"></div>
             </div>
           </div>
-
           <!-- Top played song container -->
           <div class="lg:grid lg:grid-cols-4 lg:gap-5 relative">
 
@@ -511,6 +512,7 @@
               </div>
               <div>
                 <ul id="topPlayed" class="md:flex md:flex-wrap md:gap-5">
+                  
                   <!-- <li class="li-topplayed">
                     <div
                       class="overflow-hidden w-14 h-14 flex justify-center items-center rounded-full"
@@ -1007,13 +1009,13 @@
 
             <!-- Footer played song -->
             <footer
-              class="fixed bottom-0 right-0 left-0 lg:left-auto lg:mb-5 lg:bottom-0 lg:mr-8"
+              class="fixed bottom-0 right-0 left-0 lg:left-auto lg:mb-5 lg:bottom-0 lg:mr-8 select-none"
             >
               <div
                 class="flex items-center p-2 gap-3 backdrop-blur-lg bg-white bg-opacity-5 lg:rounded-lg lg:block"
               >
-                <div
-                  class="overflow-hidden w-14 h-14 flex justify-center items-center rounded-full lg:w-52 lg:h-52 lg:rounded-lg xl:w-80 xl:h-72"
+                <div id="playImg"
+                  class="overflow-hidden w-14 h-14 flex justify-center items-center rounded-full lg:w-52 lg:h-52 lg:rounded-lg xl:w-80 xl:h-72 animate-spinSlow lg:animate-none"
                 >
                   <img id="psImg"
                     src="public/img/singer1.jpg"
@@ -1025,6 +1027,7 @@
                   <p id="psName" class="text-white text-sm font-semibold">Yummy</p>
                   <p id="psArtist" class="text-gray-500 text-xs font-medium">Justin Bieber</p>
                 </div>
+                <p id="duration" class="text-xs text-white">3:20</p> 
                 <div
                   class="text-gray-500 flex items-center gap-3 justify-center"
                 >
@@ -1041,19 +1044,40 @@
                       />
                     </svg>
                   </span>
-                  <span class>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="32"
-                      height="32"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="M9 16h2V8H9zm4 0h2V8h-2zm-1 6q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
-                      />
-                    </svg>
-                  </span>
+
+                  <div id="iconWrapper" class="cursor-pointer">
+                    <!-- Play Icon -->
+                    <span id="footerplayIcon" class="text-white block">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M9 16h2V8H9zm4 0h2V8h-2zm-1 6q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
+                        />
+                      </svg>
+                    </span>
+                  
+                    <!-- Pause Icon -->
+                    <span id="footerpauseIcon" class="text-white hidden">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="m9.5 16.5l7-4.5l-7-4.5zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  
+                 
                   <span class="text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

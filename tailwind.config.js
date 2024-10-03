@@ -12,6 +12,10 @@ export default {
         secondary : "#353531",
         txtcolor : "#595B5C"
       },
+
+      animation: {
+        spinSlow: 'spin 3s linear infinite',
+      }
     },
    
   },

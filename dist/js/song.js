@@ -8,10 +8,22 @@ class Song {
         this.movieName = movieName
         this.duration =duration
         this. play = false
+        this. selected = false
     }
 
     playsong(){
         this.play = true;
+
+        // if(this.play){
+        //     this.play = false;
+        // }else{
+        //     this.play = true;
+        // }
+    
+    }
+
+    pauseSong(){
+        this.play =false
     }
 
     getId(){
@@ -39,5 +51,17 @@ class Song {
 
     getDuration(){
         return this.duration
+    }
+
+    getPlay(){
+        return this.play
+    }
+
+    getSelected(){
+        return this.selected
+    }
+
+    setSelected(state){
+        this.selected = state
     }
 }

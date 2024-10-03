@@ -10,7 +10,7 @@ data.forEach(item => {
   album.pushSong(song)
 });
 
-
+localStorage.setItem("songId",1);
 
 const popularUl=document.getElementById("pupularUl")
 const topPlayedUl=document.getElementById("topPlayed")
@@ -75,13 +75,13 @@ function getAlbum(AlbumName,element,ui){
 
     function UI(uiName){
       if(uiName === "popular"){
-        return popularUI(d.getId(),d.getImg(),d.getName(),d.getArtist())
+        return popularUI(d.getId(),d.getImg(),d.getName(),d.getArtist(),d.getPlay())
       }else if(uiName === "topPlayed"){
-        return topPlayedUi(d.getId(),d.getImg(),d.getName(),d.getArtist(),d.getDuration())
+        return topPlayedUi(d.getId(),d.getImg(),d.getName(),d.getArtist(),d.getDuration(),d.getPlay())
       }
     }
 
-    liEl.addEventListener("click", (e) => songPlayonClick(d.getId()))
+    liEl.addEventListener("click", (e) => songPlayonClick(d.getId(),index))
     
     fragment.appendChild(liEl)
   })
@@ -92,25 +92,77 @@ function getAlbum(AlbumName,element,ui){
 
 
 
-
+let playState = false;
 // play funcition
 function songPlayonClick(id){
+
+  const preSongId= localStorage.getItem("songId")
+  
+  if(preSongId != id){
+    album.setAllFalse()
+    playState = false;
+  }
+ 
+  if(playState){
+    album.pauseSong(id)
+  }else{
+    album.playSong(id)
+  }
+
+  footerUI(id,playState)
+
+  playState = !playState
+
+  renderSongs()
+}
+
+
+// footer play pause
+function footerUI(id,state){
   const psImg = document.getElementById("psImg")
   const psName = document.getElementById("psName")
   const psArtist = document.getElementById("psArtist")
+  const duration = document.getElementById("duration")
 
-  const playsongObj = album.setPlayTrue(id)[0]
+  const playsongObj = album.getSongByID(id)[0];
 
-  psImg.setAttribute("src",playsongObj.getImg())
-  psName.textContent = playsongObj.getName()
-  psArtist.textContent = playsongObj.getArtist()
+  if(playsongObj){
+    psImg.setAttribute("src",playsongObj.getImg())
+    psName.textContent = playsongObj.getName()
+    psArtist.textContent = playsongObj.getArtist()
+    duration.textContent = playsongObj.getDuration()
+  }
 
+  if(!state){
+    footerplayIcon.classList.add("block");
+    footerplayIcon.classList.remove("hidden");
+    footerpauseIcon.classList.add("hidden");
+    playImg.classList.add("animate-spinSlow")
+  }else{
+    footerplayIcon.classList.add("hidden");
+    footerpauseIcon.classList.remove("hidden");
+    playImg.classList.remove("animate-spinSlow")
+  }
 }
+
+
+// const iconWrapper = document.getElementById("iconWrapper");
+// const footerplayIcon = document.getElementById("footerplayIcon");
+// const footerpauseIcon = document.getElementById("footerpauseIcon");
+// const playImg =document.getElementById("playImg")
+// // console.log(footerpauseIcon,footerplayIcon)
+
+iconWrapper.addEventListener("click", () => {
+  const id= localStorage.getItem("songId")
+  songPlayonClick(id)
+});
 
 
 
 // create Ui
-function popularUI(id,img,name,artist){
+function popularUI(id,img,name,artist,play){
+ let playIconStyle = play ? "block":"hidden"
+  let pauseIconStyle = play ? "hidden":"block"
   return  `
   <li class="li-popular relative group">
                 <img
@@ -123,7 +175,11 @@ function popularUI(id,img,name,artist){
                     <p class="line-clamp-1">${name}</p>
                     <p class="text-gray-300 line-clamp-1">${artist}</p>
                   </div>
-                  <span>
+                  <div class="flex">
+                   <div class="${playIconStyle}">
+                     <dotlottie-player src="https://lottie.host/31c605e2-16f2-44a6-8f22-b187a85c6197/OQvgg4IPQn.json" background="transparent" speed="1" style="width: 25px; height: 25px;" loop autoplay></dotlottie-player>
+                   </div>
+                   <span class="${pauseIconStyle}">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -136,12 +192,17 @@ function popularUI(id,img,name,artist){
                       />
                     </svg>
                   </span>
+                  </div>
+                  
                 </div>
               </li>
   `
 }
 
-function topPlayedUi(id,img,name,artist,duration){
+function topPlayedUi(id,img,name,artist,duration,play){
+  let playIconStyle = play ? "block":"hidden"
+  let pauseIconStyle = play ? "hidden":"block"
+  let lottifile = play? "block":"invisible"
   return `
    <li class="li-topplayed">
                     <div
@@ -160,11 +221,16 @@ function topPlayedUi(id,img,name,artist,duration){
                       <p class="text-gray-500 text-xs font-medium">
                         ${artist}
                       </p>
+                       
                     </div>
+                   <div class="${lottifile}">
+                     <dotlottie-player src="https://lottie.host/31c605e2-16f2-44a6-8f22-b187a85c6197/OQvgg4IPQn.json" background="transparent" speed="1" style="width: 25px; height: 25px;" loop autoplay></dotlottie-player>
+                   </div>
+
                     <div class="text-gray-500 flex items-center gap-3">
-                      <p class="text-xs">${duration}</p>
+                     
                       <div>
-                        <span class="text-white">
+                        <span id="pauseIcon" class="text-white ${[pauseIconStyle]}">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="25"
@@ -177,11 +243,11 @@ function topPlayedUi(id,img,name,artist,duration){
                             />
                           </svg>
                         </span>
-                        <span class="hidden">
+                        <span id="playIcon" class="text-white ${playIconStyle}">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
+                            width="25"
+                            height="25"
                             viewBox="0 0 24 24"
                           >
                             <path
@@ -195,3 +261,6 @@ function topPlayedUi(id,img,name,artist,duration){
                   </li>
   `
 }
+
+
+{/* <p class="text-xs text-gray-500">${duration}</p> */}
