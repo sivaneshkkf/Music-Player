@@ -1,5 +1,5 @@
 class Song {
-    constructor(id,name, artist, album,img,movieName,duration){
+    constructor(id,name, artist, album,img,movieName,duration,song){
         this.id = id
         this.name = name
         this.artist = artist
@@ -7,6 +7,7 @@ class Song {
         this.img = img
         this.movieName = movieName
         this.duration =duration
+        this.song = song
         this. play = false
         this. selected = false
     }
@@ -20,6 +21,9 @@ class Song {
         //     this.play = true;
         // }
     
+    }
+    getSong(){
+        return this.song
     }
 
     pauseSong(){
