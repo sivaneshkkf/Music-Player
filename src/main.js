@@ -184,12 +184,13 @@ function formatTime(seconds) {
 
 
 // footer play pause
-function footerUI(id,state){
+
   const psImg = document.getElementById("psImg")
   const psName = document.getElementById("psName")
   const psArtist = document.getElementById("psArtist")
   const duration = document.getElementById("duration")
-
+function footerUI(id,state){
+  
   const playsongObj = album.getSongByID(id)[0];
 
   if(playsongObj){
@@ -226,7 +227,57 @@ iconWrapper.addEventListener("click", () => {
 });
 
 
+// next and pre Song
+const preSongBtn = document.getElementById("preSongBtn")
+const nextSongBtn = document.getElementById("nextSongBtn")
 
+nextSongBtn.addEventListener("click", playNextSong);
+preSongBtn.addEventListener("click", playPreSong);
+
+// Play the next song automatically when the current song ends
+song.addEventListener("ended", playNextSong);
+
+// Function to play the next song
+function playNextSong() {
+    const arrayCount = album.getallSong().length;
+
+    const localVal= parseInt(localStorage.getItem("songId"))
+
+    if(localVal < arrayCount){
+      localStorage.setItem("songId",localVal+1); // Increment the index
+      console.log(localVal,arrayCount)
+    }else{
+      localStorage.setItem("songId",1)
+    }
+
+    const id = parseInt(localStorage.getItem("songId"))
+    
+    const playsongObj = album.getSongByID(id)[0];
+    console.log(id, typeof id, playsongObj)
+
+    footerUI(id,playState)
+    loadSong(playsongObj.getSong())
+}
+
+function playPreSong() {
+  const arrayCount = album.getallSong().length;
+
+  const localVal= parseInt(localStorage.getItem("songId"))
+
+  if(localVal > 1){
+    localStorage.setItem("songId",localVal-1); // Increment the index
+    console.log(localVal,arrayCount)
+  }else{
+    localStorage.setItem("songId",arrayCount)
+  }
+
+    const id = parseInt(localStorage.getItem("songId"))
+
+    const playsongObj = album.getSongByID(id)[0];
+    console.log(id, typeof id, playsongObj)
+    footerUI(id,playState)
+    loadSong(playsongObj.getSong())
+}
 
 
 
