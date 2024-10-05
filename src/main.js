@@ -176,6 +176,8 @@ function formatTime(seconds) {
   
   // Calculate remaining seconds
   const remainingSeconds = Math.floor(seconds % 60);
+  //console.log(seconds % 60,Math.floor(seconds % 60));
+  
 
   // Return formatted time with zero-padded seconds
   return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
@@ -241,42 +243,39 @@ song.addEventListener("ended", playNextSong);
 function playNextSong() {
     const arrayCount = album.getallSong().length;
 
-    const localVal= parseInt(localStorage.getItem("songId"))
+    const oldId= parseInt(localStorage.getItem("songId"))
 
-    if(localVal < arrayCount){
-      localStorage.setItem("songId",localVal+1); // Increment the index
-      console.log(localVal,arrayCount)
+    let id = oldId;
+
+    if(oldId < arrayCount){
+      id++;
     }else{
-      localStorage.setItem("songId",1)
+      id=1;
     }
 
-    const id = parseInt(localStorage.getItem("songId"))
-    
-    const playsongObj = album.getSongByID(id)[0];
-    console.log(id, typeof id, playsongObj)
-
-    footerUI(id,playState)
-    loadSong(playsongObj.getSong())
+    console.log(id, typeof id, oldId)
+    songPlayonClick(id)
+  
 }
 
 function playPreSong() {
   const arrayCount = album.getallSong().length;
 
-  const localVal= parseInt(localStorage.getItem("songId"))
+  const oldVal= parseInt(localStorage.getItem("songId"))
+  let id = oldVal;
 
-  if(localVal > 1){
-    localStorage.setItem("songId",localVal-1); // Increment the index
-    console.log(localVal,arrayCount)
+  if(oldVal > 1){
+ 
+    id--;
+    console.log(oldVal,arrayCount)
   }else{
-    localStorage.setItem("songId",arrayCount)
+  
+    id = arrayCount;
   }
 
-    const id = parseInt(localStorage.getItem("songId"))
-
-    const playsongObj = album.getSongByID(id)[0];
-    console.log(id, typeof id, playsongObj)
-    footerUI(id,playState)
-    loadSong(playsongObj.getSong())
+    console.log(id, typeof id, oldVal)
+    
+    songPlayonClick(id)
 }
 
 
