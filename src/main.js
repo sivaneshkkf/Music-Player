@@ -11,6 +11,8 @@ data.forEach(item => {
 });
 
 localStorage.setItem("songId",1);
+const initialId = parseInt(localStorage.getItem("songId"));
+footerUI(initialId,true)
 
 const popularUl=document.getElementById("pupularUl")
 const topPlayedUl=document.getElementById("topPlayed")
@@ -187,10 +189,10 @@ function formatTime(seconds) {
 
 // footer play pause
 
-  const psImg = document.getElementById("psImg")
-  const psName = document.getElementById("psName")
-  const psArtist = document.getElementById("psArtist")
-  const duration = document.getElementById("duration")
+  // const psImg = document.getElementById("psImg")
+  // const psName = document.getElementById("psName")
+  // const psArtist = document.getElementById("psArtist")
+  // const duration = document.getElementById("duration")
 function footerUI(id,state){
   
   const playsongObj = album.getSongByID(id)[0];
