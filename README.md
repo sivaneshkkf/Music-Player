@@ -3,7 +3,7 @@
 
 ## Enjoy listening to your favorite songs without any interruption
 
-> Live Link: [sivaneshkkf.github.io/Music-Player/](sivaneshkkf.github.io/Music-Player/)
+> Live Link: [https://sivaneshkkf.github.io/Music-Player/](https://sivaneshkkf.github.io/Music-Player/)
 
 ![image](https://github.com/user-attachments/assets/5e5002e9-a484-4b72-8869-3acf1fc390f5)
 
